@@ -17,11 +17,11 @@
       command: /bin/false
       ignore_errors: yes
 
-    - name: Skipped (no results)
+    - name: Skipped
       command: /bin/true
       when: true == false
 
-    - name: Partial Skipped (some results)
+    - name: Partial Skipped
       command: /bin/true
       when: ansible_host | search("[13579]$")
 
@@ -29,3 +29,9 @@
       command: >
         {{ (ansible_host | search("[13579]$")) | ternary('/bin/true', '/bin/false') }}
       ignore_errors: yes
+
+    - name: Partial Success with skipped
+      command: >
+        {{ (ansible_host | search("[13579]$")) | ternary('/bin/true', '/bin/false') }}
+      ignore_errors: yes
+      when: ansible_host | search("[013-9]$")
