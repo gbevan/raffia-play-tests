@@ -8,6 +8,8 @@
 ---
 - hosts: "{{ NODE }}"
   tasks:
+    - debug: var=ansible_host
+
     - name: Success
       command: /bin/true
 
@@ -17,7 +19,7 @@
 
     - name: Skipped (no results)
       command: /bin/true
-      when: "{{ true == false }}"
+      when: true == false
 
     - name: Partial Skipped (some results)
       command: /bin/true
@@ -26,3 +28,4 @@
     - name: Partial Success
       command: >
         {{ (ansible_host | match("[13579]$")) | ternary('/bin/true', '/bin/false') }}
+      ignore_errors: yes
