@@ -13,6 +13,7 @@
 
     - name: Fail
       command: /bin/false
+      ignore_errors: yes
 
     - name: Skipped (no results)
       command: /bin/true
