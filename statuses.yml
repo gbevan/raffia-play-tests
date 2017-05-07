@@ -21,8 +21,8 @@
 
     - name: Partial Skipped (some results)
       command: /bin/true
-      when: ansible_hostname | match("[13579]$")
+      when: ansible_host | match("[13579]$")
 
     - name: Partial Success
       command: >
-        {{ (ansible_hostname | match("[13579]$")) | ternary('/bin/true', '/bin/false') }}
+        {{ (ansible_host | match("[13579]$")) | ternary('/bin/true', '/bin/false') }}
