@@ -16,4 +16,4 @@
 
     - name: Skipped
       command: /bin/true
-      when: "{{ false }}"
+      when: "{{ true == false }}"
