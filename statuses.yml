@@ -10,3 +10,10 @@
   tasks:
     - name: Success
       command: /bin/true
+
+    - name: Fail
+      command: /bin/false
+
+    - name: Skipped
+      command: /bin/true
+      when: "{{ false }}"
