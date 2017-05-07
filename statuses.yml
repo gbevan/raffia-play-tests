@@ -1,0 +1,12 @@
+# Test Raffia task status display scenarios
+
+# ---
+# SLAM_TASKNAME: Status Test Scenarios
+# SLAM_Q: [ triage, play ]
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - name: Success
+      command: /bin/true
