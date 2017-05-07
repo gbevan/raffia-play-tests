@@ -14,6 +14,14 @@
     - name: Fail
       command: /bin/false
 
-    - name: Skipped
+    - name: Skipped (no results)
       command: /bin/true
       when: "{{ true == false }}"
+
+    - name: Partial Skipped (some results)
+      command: /bin/true
+      when: ansible_hostname | match("[13579]$")
+
+    - name: Partial Success
+      command: >
+        {{ ansible_hostname | match("[13579]$") | ternary('/bin/true', '/bin/false')
