@@ -24,4 +24,4 @@
 
     - name: Partial Success
       command: >
-        {{ ansible_hostname | match("[13579]$") | ternary('/bin/true', '/bin/false')
+        {{ (ansible_hostname | match("[13579]$")) | ternary('/bin/true', '/bin/false') }}
