@@ -35,3 +35,6 @@
         {{ (ansible_host | search("[13579]$")) | ternary('/bin/true', '/bin/false') }}
       ignore_errors: yes
       when: ansible_host | search("[013-9]$")
+
+    - name: This task deliberately has a veeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooong task name to force ellipsis clipping in diagram
+      command: /bin/true
