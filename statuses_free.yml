@@ -39,3 +39,15 @@
 
     - name: This task deliberately has a veeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooong task name to force ellipsis clipping in diagram
       command: /bin/true
+
+    - name: Fail with stderr
+      raw: 'echo "stderr goes here" >&2; /bin/false'
+      ignore_errors: yes
+
+    - name: Fail with stdout
+      raw: 'echo "stdout goes here"; /bin/false'
+      ignore_errors: yes
+
+    - name: Fail with stderr & stdout
+      raw: 'echo "stderr goes here" >&2; echo "stdout goes here"; /bin/false'
+      ignore_errors: yes

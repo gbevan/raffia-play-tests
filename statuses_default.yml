@@ -40,14 +40,13 @@
       command: /bin/true
 
     - name: Fail with stderr
-      command: 'echo "stderr goes here" >&2; /bin/false'
+      raw: 'echo "stderr goes here" >&2; /bin/false'
+      ignore_errors: yes
 
     - name: Fail with stdout
-      command: 'echo "stdout goes here"; /bin/false'
+      raw: 'echo "stdout goes here"; /bin/false'
+      ignore_errors: yes
 
     - name: Fail with stderr & stdout
-      command: 'echo "stderr goes here" >&2; echo "stdout goes here"; /bin/false'
-
-- hosts: UNREACHABLE
-  tasks:
-    - debug: msg="Reached!!!"
+      raw: 'echo "stderr goes here" >&2; echo "stdout goes here"; /bin/false'
+      ignore_errors: yes
