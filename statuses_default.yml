@@ -38,3 +38,16 @@
 
     - name: This task deliberately has a veeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooong task name to force ellipsis clipping in diagram
       command: /bin/true
+
+    - name: Fail with stderr
+      command: 'echo "stderr goes here" >&2; /bin/false'
+
+    - name: Fail with stdout
+      command: 'echo "stdout goes here"; /bin/false'
+
+    - name: Fail with stderr & stdout
+      command: 'echo "stderr goes here" >&2; echo "stdout goes here"; /bin/false'
+
+- hosts: UNREACHABLE
+  tasks:
+    - debug: msg="Reached!!!"
