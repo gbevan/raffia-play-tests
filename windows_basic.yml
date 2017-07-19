@@ -1,0 +1,14 @@
+# Test Raffia task for basic windows operations
+
+# ---
+# SLAM_TASKNAME: Windows Basic Tests
+# SLAM_Q: [ triage, play ]
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - win_ping:
+    - raw: dir
+    - win_command: whoami
+    - win_shell: Get-Process
