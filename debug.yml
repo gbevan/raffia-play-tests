@@ -1,0 +1,11 @@
+# Test Raffia passed settings
+
+# ---
+# SLAM_TASKNAME: Debug settins passed
+# SLAM_Q: [ triage, play ]
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug: var=ansible_winrm_server_cert_validation
