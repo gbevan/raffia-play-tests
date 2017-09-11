@@ -1,0 +1,19 @@
+# Test Raffia passed settings
+
+# ---
+# SLAM_TASKNAME: Debug settins passed
+# SLAM_Q: [ triage, play ]
+# SLAM_FF_NAME:
+#   type: text
+#   required: true
+#   prompt: Name
+# SLAM_FF_PASSWORD:
+#   type: password
+#   required: true
+#   prompt: Password
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug:
