@@ -1,7 +1,7 @@
 # Test Raffia passed settings
 
 # ---
-# SLAM_TASKNAME: Debug settings passed
+# SLAM_TASKNAME: Debug settings passed without facts
 # SLAM_Q: [ triage, play ]
 # ---
 
