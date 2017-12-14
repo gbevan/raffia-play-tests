@@ -1,0 +1,18 @@
+# ---
+# SLAM_TASKNAME: Test for variables
+# SLAM_Q: play
+# SLAM_FF_variable1:
+#   type: text
+#   required: true
+#   default: testing
+#   prompt: Enter some text
+# ---
+---
+
+- name: Test
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Debug message
+      debug:
+        msg: "variable1 is {{variable1}}"
