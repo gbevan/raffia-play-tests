@@ -16,6 +16,7 @@
     - name: Debug message
       debug:
         msg: "variable1 is {{variable1}}"
+      ignore_errors: true
 
 - name: Test 2
   hosts: "{{ NODE }}"
@@ -24,6 +25,7 @@
       local_action:
         module: debug
         msg: "variable1 is {{variable1}}"
+      ignore_errors: true
 
 
 - name: Test FAILS
