@@ -9,7 +9,24 @@
 # ---
 ---
 
-- name: Test
+- name: Test 1
+  hosts: "{{ NODE }}"
+  connection: local
+  tasks:
+    - name: Debug message
+      debug:
+        msg: "variable1 is {{variable1}}"
+
+- name: Test 2
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: Debug message
+      local_action:
+        module: debug
+        msg: "variable1 is {{variable1}}"
+
+
+- name: Test FAILS
   hosts: localhost
   connection: local
   tasks:
