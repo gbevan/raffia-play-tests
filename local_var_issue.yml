@@ -6,12 +6,20 @@
 #   required: true
 #   default: testing
 #   prompt: Enter some text
+# SLAM_FF_VARIABLE2:
+#   type: text
+#   required: true
+#   default: testing
+#   prompt: Enter some text
 # ---
 ---
 
 - name: Test not local
   hosts: "{{ NODE }}"
   tasks:
+    - name: Debug message
+      debug:
+        msg: "VARIABLE2 is {{VARIABLE2}}"
     - name: Debug message
       debug:
         msg: "variable1 is {{variable1}}"
