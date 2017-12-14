@@ -9,6 +9,14 @@
 # ---
 ---
 
+- name: Test not local
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: Debug message
+      debug:
+        msg: "variable1 is {{variable1}}"
+      ignore_errors: true
+
 - name: Test 1
   hosts: "{{ NODE }}"
   connection: local
