@@ -4,13 +4,16 @@
 # ---
 ---
 
-- name: task become defaults
-  shell: id
+- name: Tests for become overides
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: task become defaults
+      shell: id
 
-- name: task become no
-  shell: id
-  become: no
+    - name: task become no
+      shell: id
+      become: no
 
-- name: task become yes
-  shell: id
-  become: yes
+    - name: task become yes
+      shell: id
+      become: yes
