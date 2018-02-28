@@ -20,6 +20,7 @@
     - name: Debug message
       debug:
         msg: "VARIABLE2 is {{VARIABLE2}}"
+      ignore_errors: true
     - name: Debug message
       debug:
         msg: "variable1 is {{variable1}}"

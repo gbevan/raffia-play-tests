@@ -1,0 +1,16 @@
+# ---
+# SLAM_TASKNAME: Test for become overrides from raffia
+# SLAM_Q: play
+# ---
+---
+
+- name: task become defaults
+  shell: id
+
+- name: task become no
+  shell: id
+  become: no
+
+- name: task become yes
+  shell: id
+  become: yes
