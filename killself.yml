@@ -1,0 +1,15 @@
+# ---
+# SLAM_TASKNAME: Test GUI if playbook is killed
+# SLAM_Q: play
+# ---
+---
+
+- name: Tests for become overides
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: sleep 10secs
+      pause:
+        seconds: 10
+
+    - name: kill playbook
+      shell: "kill $(ps -ef | grep ansible | grep -v grep | awk '{print $2;}')"
