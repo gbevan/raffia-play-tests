@@ -1,0 +1,12 @@
+# ---
+# SLAM_TASKNAME: Long Sleep for kill testing
+# SLAM_Q: play
+# ---
+---
+
+- name: Long sleep
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: sleep 10mins
+      pause:
+        minutes: 10
