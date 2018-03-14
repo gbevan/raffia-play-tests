@@ -1,0 +1,15 @@
+# ---
+# SLAM_TASKNAME: Run a command
+# SLAM_Q: play
+# SLAM_FF_COMMAND:
+#   type: Text
+#   required: true
+# ---
+---
+
+- name: Run command
+  hosts: "{{ NODE }}"
+  tasks:
+    - name: run command
+      shell: >
+        {{ COMMAND }}
