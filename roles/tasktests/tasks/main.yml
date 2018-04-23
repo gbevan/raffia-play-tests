@@ -1,8 +1,4 @@
 ---
-# tasks file for tasktests
-# Test Raffia task status display scenarios
-
----
 - debug: var=ansible_host
 
 - name: Success
