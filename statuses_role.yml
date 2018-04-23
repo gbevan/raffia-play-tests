@@ -1,0 +1,11 @@
+# Test Raffia task status display scenarios
+
+# ---
+# SLAM_TASKNAME: Status Test Scenarios default strategy
+# SLAM_Q: [ triage, play ]
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  roles:
+    - { role: tasktests }
