@@ -17,8 +17,8 @@
     - debug:
         msg: "VAULT_SECRET_ID: {{ VAULT_SECRET_ID }}"
 
-    - shell: echo "VAULT_SECRET_ID: $VAULT_SECRET_ID"
-    
+    - shell: 'echo "VAULT_SECRET_ID: $VAULT_SECRET_ID"'
+
     - debug:
         msg: >-
           {{
