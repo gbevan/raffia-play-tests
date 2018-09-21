@@ -18,7 +18,7 @@
         msg: "VAULT_SECRET_ID {{ VAULT_SECRET_ID }}"
 
     - debug:
-        msg: |-
+        msg: >-
           {{
             lookup(
               'hashi_vault',
@@ -28,7 +28,7 @@
           }}
 
     - debug:
-        msg: |-
+        msg: >-
           {{
             lookup(
               'hashi_vault',
