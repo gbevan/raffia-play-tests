@@ -17,6 +17,9 @@
     - debug:
         msg: "VAULT_SECRET_ID: {{ VAULT_SECRET_ID }}"
 
+    - shell: 'echo "VAULT_ADDR: $VAULT_ADDR"'
+    - shell: 'echo "VAULT_CACERT: $VAULT_CACERT"'
+    - shell: 'echo "VAULT_ROLE_ID: $VAULT_ROLE_ID"'
     - shell: 'echo "VAULT_SECRET_ID: $VAULT_SECRET_ID"'
 
     - debug:
