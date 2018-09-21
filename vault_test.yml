@@ -1,0 +1,38 @@
+# Test Raffia playbook with hashicorp vault
+
+# ---
+# SLAM_TASKNAME: Vault test 1
+# SLAM_Q: [ play ]
+# SLAM_FF_VAULT_SECRET_ID:
+#   type: text
+#   required: true
+#   prompt: Hashicorp Vault Secret_Id for AppRole
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  environment:
+    VAULT_SECRET_ID: "{{ VAULT_SECRET_ID }}"
+  tasks:
+    - debug:
+        msg: "VAULT_SECRET_ID {{ VAULT_SECRET_ID }}"
+
+    - debug:
+        msg: |-
+          {{
+            lookup(
+              'hashi_vault',
+              "secret=secret/platformdxc-cva2/raffia/TEST-ONBOARDING:app
+              auth_method=approle"
+            )
+          }}
+
+    - debug:
+        msg: |-
+          {{
+            lookup(
+              'hashi_vault',
+              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app
+              auth_method=approle"
+            )
+          }}
