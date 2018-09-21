@@ -22,8 +22,7 @@
           {{
             lookup(
               'hashi_vault',
-              "secret=secret/platformdxc-cva2/raffia/TEST-ONBOARDING:app
-              auth_method=approle"
+              "secret=secret/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle"
             )
           }}
 
@@ -32,7 +31,6 @@
           {{
             lookup(
               'hashi_vault',
-              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app
-              auth_method=approle"
+              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle"
             )
           }}
