@@ -61,3 +61,12 @@
 
     - debug:
         var: sec_2
+
+    - name: Revoke token when done
+      uri:
+        method: POST
+        url: "{{ vault_addr }}/v1/auth/token/revoke-self"
+        headers:
+          X-Vault-Token: "{{ token }}"
+        status_code: 204  # empty body
+        validate_certs: no
