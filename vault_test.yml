@@ -14,6 +14,7 @@
   # environment:
   #   VAULT_SECRET_ID: "{{ VAULT_SECRET_ID }}"
   force_handlers: true
+  gather_facts: false
   tasks:
     - name: Get vault addr and role_id from environment
       set_fact:
@@ -30,7 +31,8 @@
           secret_id: "{{ VAULT_SECRET_ID }}"
         validate_certs: no
       register: login
-      notify: Revoke token when done
+      notify:
+        - Revoke token when done
 
     - name: Extract client token for future api calls
       set_fact:
