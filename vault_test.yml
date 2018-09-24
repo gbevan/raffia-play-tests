@@ -17,25 +17,47 @@
     - debug:
         msg: "VAULT_SECRET_ID: {{ VAULT_SECRET_ID }}"
 
-    - shell: 'echo "VAULT_ADDR: $VAULT_ADDR"'
-    - shell: 'echo "VAULT_CACERT: $VAULT_CACERT"'
-    - shell: 'echo "VAULT_ROLE_ID: $VAULT_ROLE_ID"'
-    - shell: 'echo "VAULT_SECRET_ID: $VAULT_SECRET_ID"'
+    - set_fact:
+        vault_addr: "{{ lookup('env', 'VAULT_ADDR') }}"
+        vault_role_id: "{{ lookup('env', 'VAULT_ROLE_ID') }}"
+
+    - name: Login to Vault using approle auth method to get token
+      uri:
+        method: POST
+        url: "{{ vault_addr }}/v1/auth/approle/login"
+        body_format: json
+        body:
+          role_id: "{{ vault_role_id }}"
+          secret_id: "{{ VAULT_SECRET_ID }}"
+        validate_certs: no
+      register: login
 
     - debug:
-        msg: >-
-          {{
-            lookup(
-              'hashi_vault',
-              "secret=secret/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle secret_id="+VAULT_SECRET_ID
-            )
-          }}
+        var: login
+
+    - set_fact:
+        token: "{{login.json.auth.client_token}}"
+
+    - name: Get test secret 1
+      uri:
+        method: GET
+        url: "{{ vault_addr }}/v1/secret/platformdxc-cva2/raffia/TEST-ONBOARDING"
+        headers:
+          X-Vault-Token: "{{ token }}"
+        validate_certs: no
+      register: sec_1
 
     - debug:
-        msg: >-
-          {{
-            lookup(
-              'hashi_vault',
-              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle secret_id="+VAULT_SECRET_ID+" cacert="+lookup('env', 'VAULT_CACERT')
-            )
-          }}
+        var: sec_1
+
+    - name: Get test secret 2
+      uri:
+        method: GET
+        url: "{{ vault_addr }}/v1/kv/data/platformdxc-cva2/raffia/TEST-ONBOARDING"
+        headers:
+          X-Vault-Token: "{{ token }}"
+        validate_certs: no
+      register: sec_2
+
+    - debug:
+        var: sec_2
