@@ -36,6 +36,6 @@
           {{
             lookup(
               'hashi_vault',
-              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle secret_id="+VAULT_SECRET_ID
+              "secret=kv/platformdxc-cva2/raffia/TEST-ONBOARDING:app auth_method=approle secret_id="+VAULT_SECRET_ID+" cacert="+lookup('env', 'VAULT_CACERT')
             )
           }}
