@@ -11,13 +11,12 @@
 
 ---
 - hosts: "{{ NODE }}"
-  environment:
-    VAULT_SECRET_ID: "{{ VAULT_SECRET_ID }}"
+  # environment:
+  #   VAULT_SECRET_ID: "{{ VAULT_SECRET_ID }}"
+  force_handlers: true
   tasks:
-    - debug:
-        msg: "VAULT_SECRET_ID: {{ VAULT_SECRET_ID }}"
-
-    - set_fact:
+    - name: Get vault addr and role_id from environment
+      set_fact:
         vault_addr: "{{ lookup('env', 'VAULT_ADDR') }}"
         vault_role_id: "{{ lookup('env', 'VAULT_ROLE_ID') }}"
 
@@ -31,11 +30,10 @@
           secret_id: "{{ VAULT_SECRET_ID }}"
         validate_certs: no
       register: login
+      notify: Revoke token when done
 
-    - debug:
-        var: login
-
-    - set_fact:
+    - name: Extract client token for future api calls
+      set_fact:
         token: "{{login.json.auth.client_token}}"
 
     - name: Get test secret 1
@@ -47,7 +45,8 @@
         validate_certs: no
       register: sec_1
 
-    - debug:
+    - name: Show secret 1
+      debug:
         var: sec_1
 
     - name: Get test secret 2
@@ -59,9 +58,11 @@
         validate_certs: no
       register: sec_2
 
-    - debug:
+    - name: Show secret 2
+      debug:
         var: sec_2
 
+  handlers:
     - name: Revoke token when done
       uri:
         method: POST
