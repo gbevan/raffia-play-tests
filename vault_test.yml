@@ -11,8 +11,6 @@
 
 ---
 - hosts: "{{ NODE }}"
-  # environment:
-  #   VAULT_SECRET_ID: "{{ VAULT_SECRET_ID }}"
   force_handlers: true
   gather_facts: false
   tasks:
