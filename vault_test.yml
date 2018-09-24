@@ -31,6 +31,9 @@
           secret_id: "{{ VAULT_SECRET_ID }}"
         validate_certs: no
       register: login
+
+    - name: Force notify for token revokation
+      command: /bin/true
       notify:
         - Revoke token when done
 
