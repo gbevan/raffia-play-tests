@@ -2,7 +2,7 @@
 
 # ---
 # SLAM_TASKNAME: Vault test 1
-# SLAM_Q: [ play ]
+# SLAM_Q: play
 # SLAM_FF_VAULT_SECRET_ID:
 #   type: text
 #   required: true
