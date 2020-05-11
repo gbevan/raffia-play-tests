@@ -4,6 +4,7 @@
 # SLAM_FF_COMMAND:
 #   type: Text
 #   required: true
+#   prompt: Enter command to run
 # ---
 ---
 
