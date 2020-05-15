@@ -1,0 +1,15 @@
+# ---
+# SLAM_TASKNAME: Play two playbooks
+# SLAM_Q: play
+# SLAM_FF_COMMAND:
+#   type: Text
+#   required: true
+#   prompt: Enter command to run
+# ---
+---
+
+- name: Run command 1
+  import_playbook: cmd.yml
+
+- name: Run command 2
+  import_playbook: cmd.yml
