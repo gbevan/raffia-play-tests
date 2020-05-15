@@ -9,3 +9,5 @@
 - hosts: "{{ NODE }}"
   tasks:
     - debug: var=ansible_winrm_server_cert_validation
+    - debug: var=ansible_winrm_server_cert_validation
+    - debug: var=ansible_winrm_server_cert_validation

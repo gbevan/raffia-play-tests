@@ -11,5 +11,5 @@
 - name: Run command 1
   import_playbook: cmd.yml
 
-- name: Run command 2
-  import_playbook: cmd.yml
+- name: Debug test
+  import_playbook: debug.yml
