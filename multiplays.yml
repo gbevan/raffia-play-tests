@@ -15,5 +15,5 @@
 - name: Run command 1
   import_playbook: cmd.yml
 
-- name: Run {{ PLAYBOOK }}
+- name: Run Playbook
   import_playbook: {{ PLAYBOOK }}
