@@ -11,6 +11,9 @@
 #   prompt: Enter playbook to run
 # ---
 ---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug: var=PLAYBOOK
 
 - name: Run command 1
   import_playbook: cmd.yml
