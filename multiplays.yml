@@ -5,11 +5,15 @@
 #   type: Text
 #   required: true
 #   prompt: Enter command to run
+# SLAM_FF_PLAYBOOK:
+#   type: Text
+#   required: true
+#   prompt: Enter playbook to run
 # ---
 ---
 
 - name: Run command 1
   import_playbook: cmd.yml
 
-- name: Debug test
-  import_playbook: debug.yml
+- name: Run {{ PLAYBOOK }}
+  import_playbook: {{ PLAYBOOK }}
