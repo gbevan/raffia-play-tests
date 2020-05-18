@@ -7,10 +7,6 @@
 #   prompt: Enter command to run
 # ---
 ---
-- hosts: "{{ NODE }}"
-  tasks:
-    - debug: msg="PLAYBOOK={{ PLAYBOOK }}"
-
 - name: Run command 1
   import_playbook: cmd.yml
 
