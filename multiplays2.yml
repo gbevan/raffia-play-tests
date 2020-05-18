@@ -5,10 +5,6 @@
 #   type: Text
 #   required: true
 #   prompt: Enter command to run
-# SLAM_FF_PLAYBOOK:
-#   type: Text
-#   required: true
-#   prompt: Enter playbook to run
 # ---
 ---
 - hosts: "{{ NODE }}"
