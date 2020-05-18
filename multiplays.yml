@@ -16,4 +16,4 @@
   import_playbook: cmd.yml
 
 - name: Run Playbook
-  import_playbook: {{ PLAYBOOK }}
+  import_playbook: "{{ PLAYBOOK }}"
