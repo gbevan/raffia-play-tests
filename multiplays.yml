@@ -13,10 +13,10 @@
 ---
 - hosts: "{{ NODE }}"
   tasks:
-    - debug: var=PLAYBOOK
+    - debug: msg="PLAYBOOK={{ PLAYBOOK }}"
 
-- name: Run command 1
-  import_playbook: cmd.yml
-
-- name: Run Playbook
-  import_playbook: "{{ PLAYBOOK }}"
+# - name: Run command 1
+#   import_playbook: cmd.yml
+#
+# - name: Run Playbook
+#   import_playbook: "{{ PLAYBOOK }}"
