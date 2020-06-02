@@ -1,0 +1,12 @@
+# Test Raffia passed settings
+
+# ---
+# SLAM_TASKNAME: Generate large amount of stdout
+# SLAM_Q: [ triage, play ]
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug: msg="hello world! for the {{ item }}'th time"
+      loop: "{{ query('sequence', 'start=1 end=500')}}"
