@@ -3,10 +3,15 @@
 # ---
 # SLAM_TASKNAME: Generate large amount of stdout
 # SLAM_Q: [ triage, play ]
+# SLAM_FF_REPEAT:
+#   type: Integer
+#   prompt: Repeat debug message times
+#   default: 500
 # ---
 
 ---
 - hosts: "{{ NODE }}"
   tasks:
     - debug: msg="hello world! for the {{ item }}'th time"
-      loop: "{{ query('sequence', 'start=1 end=500')}}"
+      # loop: "{{ query('sequence', 'start=1 end=500')}}"
+      with_sequence: start=1 end={{ REPEAT }}"
