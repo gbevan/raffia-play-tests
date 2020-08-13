@@ -1,7 +1,7 @@
 # Test Raffia passed settings
 
 # ---
-# SLAM_TASKNAME: Versions
+# SLAM_TASKNAME: Version bad
 # SLAM_Q: [ play ]
 # SLAM_ANSIBLE_EXE_VERSION: 2.6
 # ---
