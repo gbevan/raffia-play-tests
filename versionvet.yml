@@ -1,0 +1,13 @@
+# Test Raffia passed settings
+
+# ---
+# SLAM_TASKNAME: Version vet
+# SLAM_Q: [ play ]
+# SLAM_ANSIBLE_EXE_VERSION: GARBAGE
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug: msg="Hello World!"
+    - debug: var=ansible_version
