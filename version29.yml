@@ -3,10 +3,11 @@
 # ---
 # SLAM_TASKNAME: Versions
 # SLAM_Q: [ play ]
-# SLAM_ANSIBLE_EXE_VERSION: 2.8
+# SLAM_ANSIBLE_EXE_VERSION: 2.9
 # ---
 
 ---
 - hosts: "{{ NODE }}"
   tasks:
     - debug: msg="Hello World!"
+    - debug: var=ansible_version
