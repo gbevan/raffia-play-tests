@@ -1,0 +1,12 @@
+# Test Raffia passed settings
+
+# ---
+# SLAM_TASKNAME: Debug settings passed
+# SLAM_Q: [ play ]
+# SLAM_ANSIBLE_EXE_VERSION: 2.8
+# ---
+
+---
+- hosts: "{{ NODE }}"
+  tasks:
+    - debug: msg="Hello World!"
